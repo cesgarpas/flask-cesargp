@@ -31,11 +31,10 @@ def swapStatus():
         ledStatus = 1
 
     time.sleep(0.5)
-
-    return render_template('button.html', ledStatus=ledStatus)
+    return redirect("/button")
 
 
 ##########################################################
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run()
