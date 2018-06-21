@@ -11,8 +11,8 @@ ledStatus = 1
 
 @app.route('/led-status')
 def getStatus():
-    time.sleep(0.5)
-    return jsonify (ledStatus = ledStatus)
+    status = ledStatus
+    return jsonify (ledStatus = status)
 
 
 
@@ -25,7 +25,7 @@ def getButton():
 def swapStatus():
     global ledStatus
 
-    if ledStatus:
+    if ledStatus == 1:
         ledStatus = 0
     else:
         ledStatus = 1
