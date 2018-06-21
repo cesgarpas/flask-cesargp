@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, render_template, redirect
+import time
 ##########################################################
 
 app = Flask(__name__)
@@ -10,6 +11,7 @@ ledStatus = 1
 
 @app.route('/led-status')
 def getStatus():
+    time.sleep(0.5)
     return jsonify (ledStatus = ledStatus)
 
 
@@ -28,10 +30,12 @@ def swapStatus():
     else:
         ledStatus = 1
 
+    time.sleep(0.5)
+
     return redirect("/button")
 
 
 ##########################################################
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
