@@ -4,7 +4,7 @@ import time
 
 app = Flask(__name__)
 
-
+ledStatus = 1
 
 ##########################################################
 
@@ -32,11 +32,10 @@ def swapStatus():
 
     time.sleep(0.5)
 
-    return redirect("/button")
+    return render_template('button.html', ledStatus=ledStatus)
 
 
 ##########################################################
 
 if __name__ == "__main__":
-    ledStatus = 1
     app.run(host='0.0.0.0')
