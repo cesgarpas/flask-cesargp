@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, render_template, redirect
 import time
+
 ##########################################################
 
 app = Flask(__name__)
@@ -11,8 +12,7 @@ ledStatus = 1
 
 @app.route('/led-status')
 def getStatus():
-    status = ledStatus
-    return jsonify (ledStatus = status)
+    return jsonify (ledStatus = ledStatus)
 
 
 
