@@ -2,25 +2,19 @@ from flask import Flask, jsonify, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
 import time
 
-##########################################################
+############################# DB Set Up#############################
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://imkvanaqhxfquj:d8a0710bf1e7f1f95d0a9f38017d05035827ba36a98031ea3b5f156e64de13fa@ec2-54-247-100-44.eu-west-1.compute.amazonaws.com:5432/d27b1kimhdmc6p'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/flask'
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://imkvanaqhxfquj:d8a0710bf1e7f1f95d0a9f38017d05035827ba36a98031ea3b5f156e64de13fa@ec2-54-247-100-44.eu-west-1.compute.amazonaws.com:5432/d27b1kimhdmc6p'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/flask'
 db = SQLAlchemy(app)
 
-##########################################################
+############################ Model ##############################
 
 class LED(db.Model):
-    #__tablename__ = 'led'
     status = db.Column('status', db.Integer, primary_key=True)
 
-
-##########################################################
-#ledStatus = 1
-
-##########################################################
+############################ Routes ##############################
 
 
 @app.route('/led-status')
@@ -38,7 +32,6 @@ def getButton():
 
 @app.route('/led-swap')
 def swapStatus():
-    #global ledStatus
     led = LED.query.first()
 
     if led.status == 1:
@@ -52,7 +45,7 @@ def swapStatus():
     return redirect("/button")
 
 
-##########################################################
+########################### Init ###############################
 
 if __name__ == "__main__":
     db.create_all()
@@ -61,4 +54,4 @@ if __name__ == "__main__":
         ledStatus = LED(status=1)
         db.session.add(ledStatus)
         db.session.commit()
-    app.run(host='0.0.0.0', debug=True)
+    app.run()#host='0.0.0.0')#, debug=True)
