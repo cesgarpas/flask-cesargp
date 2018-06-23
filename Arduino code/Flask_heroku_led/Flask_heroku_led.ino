@@ -11,8 +11,7 @@ char* ssid = "SSID";
 char* pass = "PASS";
 
 //Url de la API REST
-RestClient client = RestClient("flask-cesargp.herokuapp.com");
-//RestClient client = RestClient("192.168.0.10",5000);
+RestClient client = RestClient("HEROKU URL HERE");
 
 //Variable status
 int status = 0;
