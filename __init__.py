@@ -5,7 +5,7 @@ import time
 ############################# DB Set Up#############################
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://imkvanaqhxfquj:d8a0710bf1e7f1f95d0a9f38017d05035827ba36a98031ea3b5f156e64de13fa@ec2-54-247-100-44.eu-west-1.compute.amazonaws.com:5432/d27b1kimhdmc6p'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://vlsisfddogfqxb:4bc16c307e949f3a9d4f3bdeef768c4f79b28348b1859d75875b59716a5377ca@ec2-176-34-184-174.eu-west-1.compute.amazonaws.com:5432/dbg9l15vcp6ai6'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/flask'
 db = SQLAlchemy(app)
 
